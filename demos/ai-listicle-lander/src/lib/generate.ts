@@ -54,27 +54,33 @@ function role(category: Category) {
 }
 
 function buzzwords(form: BriefInput, category: Category): string[] {
-  const pain = form.primaryPain;
-  const extracted = pain
-    .split(/[,/]| and | \+ /i)
+  if (category === "water") {
+    return ["CHLORINE", "HARD WATER", "DULL HAIR", "ITCHY SCALP", '"I FILTER MY TAP"'];
+  }
+  if (category === "wellness") {
+    return ["STAIRS", "MORNING STIFFNESS", '"I\'M FINE"', "GRANDKIDS", "WEATHER DAYS"];
+  }
+
+  const quoted = Array.from(form.primaryPain.matchAll(/['"“”]([^'"“”]+)['"“”]/g)).map(
+    (match) => `"${match[1].toUpperCase()}"`,
+  );
+  const extracted = form.primaryPain
+    .split(/[,/]/)
     .map((part) =>
       part
-        .replace(/['"']/g, "")
-        .replace(/\b(the|a|an|to|of|for|with|your|you|that|this|are|is)\b/gi, "")
+        .replace(/['"“”]/g, "")
+        .replace(/\b(the|a|an|and|to|of|for|with|your|you|that|this|are|is)\b/gi, " ")
+        .replace(/\s+/g, " ")
         .trim(),
     )
-    .filter((part) => part.length > 2 && part.length < 28)
-    .slice(0, 4)
+    .filter((part) => {
+      const words = part.split(" ").filter(Boolean);
+      return words.length >= 1 && words.length <= 3 && part.length >= 4 && part.length <= 22;
+    })
     .map((part) => part.toUpperCase());
 
-  const extras =
-    category === "water"
-      ? ["CHLORINE", "HARD WATER", "DULL HAIR", "ITCHY SCALP", '"I FILTER MY TAP"']
-      : category === "wellness"
-        ? ["STAIRS", "MORNING STIFFNESS", '"I\'M FINE"', "GRANDKIDS", "WEATHER DAYS"]
-        : ["THE OLD WAY", "WORKAROUND", "QUIET QUIT", "SWITCHERS"];
-
-  const merged = [...extracted, ...extras];
+  const extras = ["THE OLD WAY", "WORKAROUND", "QUIET QUIT", "SWITCHERS"];
+  const merged = [...quoted, ...extracted, ...extras];
   const seen = new Set<string>();
   const unique: string[] = [];
   for (const item of merged) {
@@ -97,7 +103,7 @@ function buyersToday(seed: string) {
 }
 
 function rating(seed: string) {
-  const tenths = 84 + (hash(`${seed}-rate`) % 12);
+  const tenths = 47 + (hash(`${seed}-rate`) % 4);
   return (tenths / 10).toFixed(1);
 }
 

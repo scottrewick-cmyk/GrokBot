@@ -133,7 +133,9 @@ export function LivePreview({ lander, mode, flash }: Props) {
             </strong>
             <span>{lander.cta.urgency}</span>
           </div>
-          <button type="button">{lander.cta.primary}</button>
+          <button type="button" name="stickyCta">
+            {lander.cta.primary}
+          </button>
         </div>
       </div>
     </div>

@@ -69,6 +69,7 @@ export function BuilderForm({
           <button
             key={example.id}
             type="button"
+            name="loadExample"
             className="example-chip"
             onClick={() => onLoadExample(example.id)}
           >
@@ -78,9 +79,11 @@ export function BuilderForm({
         ))}
       </div>
 
-      <label>
+      <label htmlFor="productName">
         Product name
         <input
+          id="productName"
+          name="productName"
           value={form.productName}
           onChange={(e) => update("productName", e.target.value)}
           placeholder="AquaLume Filtered Shower Head"
@@ -88,9 +91,11 @@ export function BuilderForm({
         />
       </label>
 
-      <label>
+      <label htmlFor="audience">
         Audience
         <input
+          id="audience"
+          name="audience"
           value={form.audience}
           onChange={(e) => update("audience", e.target.value)}
           placeholder="Smart people who already buy organic"
@@ -98,9 +103,11 @@ export function BuilderForm({
         />
       </label>
 
-      <label>
+      <label htmlFor="primaryPain">
         Primary pain
         <textarea
+          id="primaryPain"
+          name="primaryPain"
           rows={3}
           value={form.primaryPain}
           onChange={(e) => update("primaryPain", e.target.value)}
@@ -112,10 +119,10 @@ export function BuilderForm({
       <div className="points-head">
         <label>Listicle points (5–7)</label>
         <div className="points-actions">
-          <button type="button" className="text-btn" onClick={onSuggest}>
+          <button type="button" name="autoSuggest" className="text-btn" onClick={onSuggest}>
             Auto-suggest
           </button>
-          <button type="button" className="text-btn" onClick={addPoint} disabled={form.points.length >= 7}>
+          <button type="button" name="addPoint" className="text-btn" onClick={addPoint} disabled={form.points.length >= 7}>
             Add
           </button>
         </div>
@@ -124,12 +131,21 @@ export function BuilderForm({
         {form.points.map((point, index) => (
           <li key={index}>
             <input
+              id={`point-${index}`}
+              name={`point-${index}`}
+              aria-label={`Listicle point ${index + 1}`}
               value={point}
               onChange={(e) => updatePoint(index, e.target.value)}
               placeholder={`Reason ${index + 1}`}
             />
             {form.points.length > 5 ? (
-              <button type="button" className="icon-btn" onClick={() => removePoint(index)} aria-label="Remove point">
+              <button
+                type="button"
+                name={`removePoint-${index}`}
+                className="icon-btn"
+                onClick={() => removePoint(index)}
+                aria-label={`Remove point ${index + 1}`}
+              >
                 ×
               </button>
             ) : null}
@@ -138,18 +154,22 @@ export function BuilderForm({
       </ol>
 
       <div className="split-fields">
-        <label>
+        <label htmlFor="cta">
           CTA
           <input
+            id="cta"
+            name="cta"
             value={form.cta}
             onChange={(e) => update("cta", e.target.value)}
             placeholder="Switch my shower — 30-second install"
             required
           />
         </label>
-        <label>
+        <label htmlFor="price">
           Price lockup
           <input
+            id="price"
+            name="price"
             value={form.price}
             onChange={(e) => update("price", e.target.value)}
             placeholder="$47"
@@ -157,9 +177,11 @@ export function BuilderForm({
         </label>
       </div>
 
-      <label className={`ai-toggle ${openai ? "" : "is-off"}`}>
+      <label htmlFor="useAi" className={`ai-toggle ${openai ? "" : "is-off"}`}>
         <input
           type="checkbox"
+          name="useAi"
+          id="useAi"
           checked={useAi && openai}
           disabled={!openai}
           onChange={(e) => onToggleAi(e.target.checked)}
@@ -175,10 +197,10 @@ export function BuilderForm({
       </label>
 
       <div className="builder-footer">
-        <button type="submit" className="generate" disabled={!canGenerate || busy}>
+        <button type="submit" name="generate" className="generate" disabled={!canGenerate || busy}>
           {busy ? "Generating…" : "Generate lander"}
         </button>
-        <button type="button" className="ghost" onClick={onReset}>
+        <button type="button" name="clear" className="ghost" onClick={onReset}>
           Clear
         </button>
       </div>

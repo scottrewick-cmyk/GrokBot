@@ -56,9 +56,8 @@
 }
 
 .byline {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
+  display: grid;
+  gap: 2px;
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 12px;
   color: #6b5e52;
@@ -343,6 +342,12 @@
 
 .device.is-desktop .lander h1 {
   font-size: 46px;
+}
+
+.device.is-desktop .byline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 @media (max-width: 640px) {
