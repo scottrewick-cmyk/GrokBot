@@ -8,10 +8,10 @@ import { AngleCard, InsightStrip, Scanner } from "./components/AngleCard";
 import type { AnalysisResult, ScanStage } from "./types";
 
 const STAGE_MS: Array<[ScanStage, number]> = [
-  ["parsing", 280],
-  ["clustering", 340],
-  ["scoring", 320],
-  ["writing", 380],
+  ["parsing", 420],
+  ["clustering", 480],
+  ["scoring", 460],
+  ["writing", 520],
 ];
 
 function Mark() {

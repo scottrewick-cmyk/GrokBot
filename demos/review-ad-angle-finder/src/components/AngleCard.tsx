@@ -10,16 +10,34 @@ function CopyButton({
   text: string;
   onCopied: (msg: string) => void;
 }) {
+  const [copied, setCopied] = useState(false);
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      try {
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.left = "-9999px";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      } catch {
+        // Clipboard can be blocked in embedded browsers; still show local feedback.
+      }
+    }
+    setCopied(true);
+    onCopied(`${label} copied`);
+    window.setTimeout(() => setCopied(false), 1600);
+  }
+
   return (
-    <button
-      className="btn ghost"
-      type="button"
-      onClick={async () => {
-        await navigator.clipboard.writeText(text);
-        onCopied(`${label} copied`);
-      }}
-    >
-      Copy
+    <button className="btn ghost" type="button" onClick={copy}>
+      {copied ? "Copied" : "Copy"}
     </button>
   );
 }
@@ -146,6 +164,7 @@ export function InsightStrip({ analysis }: { analysis: AnalysisResult }) {
         </div>
       </div>
 
+      <p className="section-label">Theme clusters</p>
       <div className="clusters">
         {analysis.themes.slice(0, 6).map((theme) => (
           <div className="cluster" key={theme.id}>
@@ -160,20 +179,32 @@ export function InsightStrip({ analysis }: { analysis: AnalysisResult }) {
         ))}
       </div>
 
+      <p className="section-label">Who it&apos;s for</p>
       <div className="who">
         {analysis.whoItsFor.map((persona) => (
           <span className="pill" key={persona.label}>
             {persona.label} · {persona.count}
           </span>
         ))}
+      </div>
+      <p className="section-label">Urgency</p>
+      <div className="who">
         {analysis.urgency.map((item) => (
           <span className="pill" key={item.label}>
-            {item.label}
+            {item.label} · {item.count}
           </span>
         ))}
+      </div>
+      <p className="section-label">Failed alternatives</p>
+      <div className="who">
         {analysis.failedSolutions.map((item) => (
           <span className="pill" key={item.name}>
-            Failed: {item.name}
+            {item.name} · {item.count}
+          </span>
+        ))}
+        {analysis.painLanguage.slice(0, 8).map((item) => (
+          <span className="pill" key={item.phrase}>
+            {item.category}: {item.phrase}
           </span>
         ))}
       </div>

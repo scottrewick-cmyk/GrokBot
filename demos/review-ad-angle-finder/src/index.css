@@ -467,6 +467,7 @@ textarea:focus {
   white-space: pre-wrap;
   line-height: 1.55;
   font-size: 0.92rem;
+  overflow-wrap: anywhere;
 }
 
 .copy-row {
@@ -571,6 +572,14 @@ textarea:focus {
   border: 1px solid rgba(147, 192, 175, 0.3);
   border-radius: 999px;
   padding: 4px 10px;
+}
+
+.section-label {
+  margin: 4px 0 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .footer-note {
