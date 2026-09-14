@@ -15,7 +15,7 @@ export function AuthorityLander({ brief, onCta }) {
       <DemoBanner>Marketing demo · fictional product · not medical advice</DemoBanner>
 
       <header className="lp-auth__letterhead">
-        <span>The Hale Notes</span>
+        <span>The {brief.lastName} Notes</span>
         <span>Issue 14 · {brief.year}</span>
         <span>{brief.location}</span>
       </header>
@@ -23,17 +23,17 @@ export function AuthorityLander({ brief, onCta }) {
       <section className="lp-auth__hero">
         <div className="lp-auth__portrait" aria-hidden="true">
           <div className="lp-auth__face">
-            <span>MH</span>
+            <span>{brief.initials}</span>
           </div>
-          <p>
-            {brief.expert}
-            <small>{brief.expertTitle}</small>
-          </p>
         </div>
         <div>
           <p className="lp-kicker">{brief.authorityEyebrow}</p>
           <h1 className="lp-auth__h">{brief.authorityHeadline}</h1>
           <p className="lp-dek">{brief.authorityDek}</p>
+          <p className="lp-auth__by">
+            {brief.expert}
+            <small>{brief.expertTitle}</small>
+          </p>
         </div>
       </section>
 

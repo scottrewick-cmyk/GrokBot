@@ -39,9 +39,25 @@ function Cover({ id }) {
   );
 }
 
+function FamilyCard({ family, onPick }) {
+  return (
+    <button type="button" className="family" onClick={() => onPick(family.id)}>
+      <Cover id={family.id} />
+      <div className="family__body">
+        <p className="family__kicker">{family.kicker}</p>
+        <h2>{family.name}</h2>
+        <p className="family__tag">{family.tagline}</p>
+        <p>{family.description}</p>
+        <span className="family__go">Open studio</span>
+      </div>
+    </button>
+  );
+}
+
 export function Gallery({ onPick }) {
   const featured = FAMILIES[0];
-  const rest = FAMILIES.slice(1);
+  const full = FAMILIES.slice(1, 3);
+  const stubs = FAMILIES.slice(3);
 
   return (
     <div className="gallery">
@@ -74,17 +90,13 @@ export function Gallery({ onPick }) {
       </button>
 
       <div className="gallery__grid">
-        {rest.map((family) => (
-          <button key={family.id} type="button" className="family" onClick={() => onPick(family.id)}>
-            <Cover id={family.id} />
-            <div className="family__body">
-              <p className="family__kicker">{family.kicker}</p>
-              <h2>{family.name}</h2>
-              <p className="family__tag">{family.tagline}</p>
-              <p>{family.description}</p>
-              <span className="family__go">Open studio</span>
-            </div>
-          </button>
+        {full.map((family) => (
+          <FamilyCard key={family.id} family={family} onPick={onPick} />
+        ))}
+      </div>
+      <div className="gallery__grid gallery__grid--three">
+        {stubs.map((family) => (
+          <FamilyCard key={family.id} family={family} onPick={onPick} />
         ))}
       </div>
     </div>

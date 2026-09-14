@@ -103,6 +103,11 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  margin-top: 18px;
+}
+
+.gallery__grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .family {
@@ -126,7 +131,6 @@
 
 .family--feature {
   grid-template-columns: 0.9fr 1.2fr;
-  margin-bottom: 18px;
 }
 
 .family__body {
@@ -203,6 +207,8 @@
   font-family: var(--serif);
   font-size: 1.4rem;
   color: var(--brass-2);
+  background: #1d1813;
+  z-index: 1;
 }
 
 .cover--authority i {
@@ -517,6 +523,7 @@
   }
 
   .gallery__grid,
+  .gallery__grid--three,
   .family--feature {
     grid-template-columns: 1fr;
   }

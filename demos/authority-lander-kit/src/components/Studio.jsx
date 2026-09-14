@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FAMILIES } from "../data/families.js";
 import { getCopySections } from "../data/copy.js";
 import {
@@ -26,9 +26,14 @@ export function Studio({
   toast,
 }) {
   const previewRef = useRef(null);
+  const scrollRef = useRef(null);
   const [openSections, setOpenSections] = useState(true);
   const family = FAMILIES.find((f) => f.id === familyId) ?? FAMILIES[0];
   const sections = useMemo(() => getCopySections(family.id, brief), [family.id, brief]);
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = 0;
+  }, [family.id, viewport]);
 
   async function exportHtml() {
     const root = previewRef.current;
@@ -144,7 +149,7 @@ export function Studio({
             <span />
             <span />
           </div>
-          <div className="device__scroll">
+          <div className="device__scroll" ref={scrollRef}>
             <div ref={previewRef} className="device__page">
               <LanderSwitch
                 familyId={family.id}

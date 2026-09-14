@@ -3,6 +3,24 @@ function firstNameOf(expertName) {
   return withoutCreds.split(/\s+/)[0] || "Margaret";
 }
 
+function lastNameOf(expertName) {
+  const withoutCreds = expertName.split(",")[0].trim();
+  const parts = withoutCreds.split(/\s+/).filter(Boolean);
+  return parts[parts.length - 1] || "Hale";
+}
+
+function initialsOf(expertName) {
+  const withoutCreds = expertName.split(",")[0].trim();
+  const parts = withoutCreds.split(/\s+/).filter(Boolean);
+  return (
+    parts
+      .map((part) => part[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase() || "MH"
+  );
+}
+
 export function createBrief({
   productName = "Old World Relief",
   category = "knee comfort cream",
@@ -19,6 +37,8 @@ export function createBrief({
     cat: catPlain,
     expert,
     firstName,
+    lastName: lastNameOf(expert),
+    initials: initialsOf(expert),
     year: 2026,
     expertTitle: "Physical therapist · former collegiate trainer",
     location: "Hudson Valley, NY",
@@ -30,7 +50,7 @@ export function createBrief({
     authorityTried: [
       {
         title: "The locker-room gel",
-        body: "Cold, loud, gone in twenty minutes. Smells like a high school athletic train. Fine in a pinch. Not a companion.",
+        body: "Cold, loud, gone in twenty minutes. Smells like a high school athletic trainer. Fine in a pinch. Not a companion.",
       },
       {
         title: "The $64 French name",
