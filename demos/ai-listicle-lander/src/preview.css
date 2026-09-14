@@ -1,0 +1,366 @@
+.lander-scroll {
+  overflow: auto;
+  background: #f6f1e8;
+}
+
+.lander {
+  padding: 18px 18px 28px;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  color: #1a140f;
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid #1a140f;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.pub {
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+}
+
+.sponsored {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b5e52;
+}
+
+.kicker {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--ll-accent);
+  text-transform: uppercase;
+}
+
+.lander h1 {
+  font-size: clamp(28px, 7vw, 42px);
+  line-height: 1.12;
+  margin: 8px 0 10px;
+  font-weight: 700;
+}
+
+.subhead {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: #4d433a;
+  margin: 0 0 12px;
+}
+
+.byline {
+  display: grid;
+  gap: 2px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+  color: #6b5e52;
+  margin-bottom: 14px;
+}
+
+.buzz {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.buzz li {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  border: 1px solid #1a140f;
+  padding: 6px 8px;
+  background: #fffdf8;
+}
+
+.proof-bar {
+  display: grid;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e4d9c8;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+}
+
+.proof-bar > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.stars {
+  color: var(--ll-accent);
+  letter-spacing: 0.04em;
+}
+
+.outlets em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.intro {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.identity {
+  margin: 8px 0 22px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--ll-accent);
+  background: #efe6d6;
+  font-size: 0.98rem;
+}
+
+.identity p {
+  margin: 0;
+}
+
+.reason {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 28px;
+}
+
+.reason-copy h2 {
+  margin: 8px 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.reason-copy p {
+  margin: 0;
+  line-height: 1.5;
+  color: #3a322b;
+}
+
+.num {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ll-accent);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.callout {
+  margin-top: 10px !important;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+  color: #6b5e52;
+}
+
+.ph {
+  margin: 0;
+}
+
+.ph-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e7dccb;
+  min-height: 180px;
+}
+
+.ph-art {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ph-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(20, 17, 13, 0.82);
+  color: #f6f1e8;
+  padding: 6px 8px;
+}
+
+.ph figcaption {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+  color: #6b5e52;
+  margin-top: 6px;
+}
+
+.mid-cta {
+  background: #1a140f;
+  color: #f6f1e8;
+  padding: 18px;
+  margin: 8px 0 28px;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+
+.mid-cta p {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c9a227;
+}
+
+.mid-cta strong {
+  font-size: 1.2rem;
+}
+
+.quotes h2,
+.guarantee h2,
+.faq h2 {
+  font-size: 1.4rem;
+  margin: 0 0 12px;
+}
+
+.quotes blockquote {
+  margin: 0 0 14px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e4d9c8;
+}
+
+.quotes p {
+  margin: 6px 0;
+}
+
+.quotes footer {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+  color: #6b5e52;
+}
+
+.guarantee {
+  background: #efe6d6;
+  padding: 16px;
+  margin-bottom: 22px;
+}
+
+.faq details {
+  border-top: 1px solid #e4d9c8;
+  padding: 10px 0;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.faq p {
+  margin: 8px 0 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  color: #3a322b;
+}
+
+.disclaimer {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  color: #8a7c6e;
+  margin-top: 12px;
+}
+
+.sticky-cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: #1a140f;
+  color: #f6f1e8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sticky-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sticky-copy strong {
+  font-size: 13px;
+}
+
+.sticky-copy span {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  color: #d7cbb8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-cta button {
+  flex: 0 1 auto;
+  background: var(--ll-accent);
+  color: #fff;
+  border: 0;
+  padding: 11px 12px;
+  font-weight: 700;
+  max-width: 58%;
+  line-height: 1.2;
+  cursor: default;
+}
+
+.device.is-desktop .lander {
+  padding: 28px 36px 40px;
+}
+
+.device.is-desktop .reason {
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: start;
+}
+
+.device.is-desktop .reason.is-flip .ph {
+  order: -1;
+}
+
+.device.is-desktop .proof-bar {
+  grid-template-columns: 1.1fr 0.8fr 1fr;
+}
+
+.device.is-desktop .lander h1 {
+  font-size: 46px;
+}
+
+.device.is-desktop .byline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .sticky-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sticky-cta button {
+    max-width: none;
+  }
+
+  .sticky-copy span {
+    white-space: normal;
+  }
+}
