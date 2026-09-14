@@ -1,9 +1,9 @@
-import { AuthorityLander } from "./landers/AuthorityLander.jsx";
-import { ComparisonLander } from "./landers/ComparisonLander.jsx";
-import { ListicleLander } from "./landers/ListicleLander.jsx";
-import { NewsMimicLander } from "./landers/NewsMimicLander.jsx";
-import { QuizLander } from "./landers/QuizLander.jsx";
-import { StoryLander } from "./landers/StoryLander.jsx";
+import { AuthorityLander } from "./AuthorityLander.jsx";
+import { ComparisonLander } from "./ComparisonLander.jsx";
+import { ListicleLander } from "./ListicleLander.jsx";
+import { NewsMimicLander } from "./NewsMimicLander.jsx";
+import { QuizLander } from "./QuizLander.jsx";
+import { StoryLander } from "./StoryLander.jsx";
 
 const MAP = {
   authority: AuthorityLander,
