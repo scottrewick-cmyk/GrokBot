@@ -206,11 +206,21 @@ textarea {
 }
 
 .points-actions,
-.builder-footer,
 .export-actions,
 .seg {
   display: flex;
   gap: 8px;
+}
+
+.builder-footer {
+  display: flex;
+  gap: 8px;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent, var(--panel) 18px);
+  padding: 16px 0 4px;
+  margin-top: 4px;
 }
 
 .text-btn,
