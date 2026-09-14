@@ -1,0 +1,54 @@
+:root {
+  color-scheme: dark;
+  --ink: #16120e;
+  --ink-2: #2a241c;
+  --mist: #ebe4d6;
+  --paper: #f6efe3;
+  --brass: #c4a36a;
+  --brass-2: #e8d7b3;
+  --clay: #8f3d2c;
+  --rule: rgba(232, 215, 179, 0.18);
+  --sans: "Outfit", system-ui, sans-serif;
+  --serif: "Fraunces", "Times New Roman", serif;
+  --read: "Newsreader", Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--mist);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
